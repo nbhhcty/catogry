@@ -62,15 +62,45 @@
 {
     MD_CHECK_EMPTY
     
+// 方法一：开辟新的内存空间
+#if 0
+    NSArray *originalArr = @[@1, @2, @3, @1, @3];
+    NSMutableArray *resultArrM = [NSMutableArray array];
+    
+    for (NSString *item in originalArr) {
+        if (![resultArrM containsObject:item]) {
+            [resultArrM addObject:item];
+        }
+    }
+    NSLog(@"result : %@", resultArrM);
+#endif
+    
+    // 方法二：利用NSDictionary的AllKeys（AllValues）方法。利用AllKeys或者AllValues取得字典的所有键或值，这些键或值都是去重的
+#if 0
+    NSArray *originalArr = @[@1, @2, @3, @1, @3];
+    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+    for (NSNumber *n in originalArr) {
+        [dict setObject:n forKey:n];
+    }
+    NSLog(@"%@",[dictM allValues]);
+#endif
+    
+    // 方法三：通过valueForKeyPath, 去重只需一行代码
+#if 0
+    NSArray *originalArr = @[@1, @2, @3, @1, @3];
+    NSArray *result = [originalArr valueForKeyPath:@"@distinctUnionOfObjects.self"];
+#endif
+
+    // 方法四：利用NSSet特性, 放入集合自动去重。NSSet的特性: 确定性、无序性、互异性。这种方法更快，利用NSSet不会添加重复元素的特性。
     NSSet* set = [NSSet setWithArray:self];
     return [[NSArray alloc]initWithArray:[set allObjects]];
 }
 
 -(NSArray *)sortedWithProperty:(NSString *)property ascending:(BOOL)ascending {
     MD_CHECK_EMPTY
-#pragma mark - 返回新的数组，原数组不变
+// 返回新的数组，原数组不变
 
-#pragma mark - 方法一：使用comparator
+// 方法一：使用comparator
     NSArray *comparatorSortedArray = [self sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         if (ascending) {
             return [[obj1 valueForKey:property] compare:[obj2 valueForKey:property]];
@@ -80,7 +110,7 @@
     return comparatorSortedArray;
 
 #if 0
-#pragma mark - 方法二：使用descriptors
+// 方法二：使用descriptors
     NSSortDescriptor*sorter=[[NSSortDescriptor alloc]initWithKey:property ascending:ascending];
     NSMutableArray *sortDescriptors=[[NSMutableArray alloc]initWithObjects:&sorter count:1];
     NSArray *sortArray=[self sortedArrayUsingDescriptors:sortDescriptors];
