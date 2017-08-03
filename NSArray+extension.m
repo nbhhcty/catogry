@@ -119,8 +119,22 @@
     
 }
 
+-(NSUInteger)sortedArrayFindObjWith:(id)searchObj property:(NSString *)property
+{
+    return [self sortedArrayFindObjWith:searchObj property:property searchRange:NSMakeRange(0, self.count)];
+}
 
-
+-(NSUInteger)sortedArrayFindObjWith:(id)searchObj property:(NSString *)property searchRange:(NSRange)searchRange
+{
+    NSUInteger findIndex = [self indexOfObject:searchObj
+                                 inSortedRange:searchRange
+                                       options:NSBinarySearchingFirstEqual
+                               usingComparator:^(id obj1, id obj2)
+                            {
+                                return [[obj1 valueForKey:property] compare:[obj2 valueForKey:property]];
+                            }];
+    return findIndex;
+}
 
 
 
