@@ -50,14 +50,28 @@
  
  方法二：直接使用运行时objc_msgSend
  
-     NSString *str = @"字符串objc_msgSend";
-     NSNumber *num = @20;
-     NSArray *arr = @[@"数组值1", @"数组值2"];
-     SEL sel = NSSelectorFromString(@"ObjcMsgSendWithString:withNum:withArray:");
+     #define MD_SWITCH_FUN(type) \
+     ((void (*) (id, SEL, NSString *, NSNumber *, NSArray *)) objc_msgSend) (self, NSSelectorFromString(dict[type]), str, num, arr)
      
-     ((void (*) (id, SEL, NSString *, NSNumber *, NSArray *)) objc_msgSend) (self, sel, str, num, arr);
+     -(void)testSuperSwitch {
+ 
+         NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+         
+         dict[@1] = @"func1:withNum:withArray:";
+         dict[@2] = @"func2:withNum:withArray:";
+         
+         NSString *str = @"字符串objc_msgSend";
+         NSNumber *num = @20;
+         NSArray *arr = @[@"数组值1", @"数组值2"];
+         
+         MD_SWITCH_FUN(@2);
+     }
      
-     - (void)ObjcMsgSendWithString:(NSString *)string withNum:(NSNumber *)number withArray:(NSArray *)array {
+     - (void)func1:(NSString *)string withNum:(NSNumber *)number withArray:(NSArray *)array {
+        NSLog(@"%@, %@, %@", string, number, array[0]);
+     }
+     
+     - (void)func2:(NSString *)string withNum:(NSNumber *)number withArray:(NSArray *)array {
          NSLog(@"%@, %@, %@", string, number, array[0]);
      }
  
