@@ -10,6 +10,13 @@
 
 @interface UIView (extension)
 
+- (void)removeAllSubviews;
+
+#pragma mark - 添加手势
+- (void)addUITapGestureRecognizer:(void (^)(id x))actionBlock;
+
+- (void)addUIPanGestureRecognizer:(void (^)(id x))actionBlock;
+
 #pragma mark - layerEffects 设置圆角、边框、阴影
 - (void)setCornerRadius:(CGFloat)radius;
 

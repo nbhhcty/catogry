@@ -10,6 +10,29 @@
 
 @implementation UIView (extension)
 
+- (void)removeAllSubviews {
+    while (self.subviews.count) {
+        UIView* child = self.subviews.lastObject;
+        [child removeFromSuperview];
+    }
+}
+
+-(void)addUITapGestureRecognizer:(void (^)(id x))actionBlock
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
+    [[tap rac_gestureSignal] subscribeNext:actionBlock];
+    self.userInteractionEnabled = YES;
+    [self addGestureRecognizer:tap];
+}
+
+-(void)addUIPanGestureRecognizer:(void (^)(id x))actionBlock
+{
+    UIPanGestureRecognizer*pan =[[UIPanGestureRecognizer alloc] init];
+    [[pan rac_gestureSignal] subscribeNext:actionBlock];
+    self.userInteractionEnabled = YES;
+    [self addGestureRecognizer:pan];
+}
+
 - (void) setCornerRadius : (CGFloat) radius
 {
     self.layer.cornerRadius = radius;
