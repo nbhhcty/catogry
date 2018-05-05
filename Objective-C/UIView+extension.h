@@ -13,9 +13,9 @@
 - (void)removeAllSubviews;
 
 #pragma mark - 添加手势
-- (void)addUITapGestureRecognizer:(void (^)(id x))actionBlock;
+- (void)addTapGestureRecognizer:(nullable SEL) action target:(id)target;
 
-- (void)addUIPanGestureRecognizer:(void (^)(id x))actionBlock;
+- (void)addPanGestureRecognizer:(nullable SEL) action target:(id)target;
 
 #pragma mark - layerEffects 设置圆角、边框、阴影
 - (void)setCornerRadius:(CGFloat)radius;

@@ -8,6 +8,8 @@
 
 #import "UIView+extension.h"
 
+typedef void (^callBack) (void);
+
 @implementation UIView (extension)
 
 - (void)removeAllSubviews {
@@ -17,18 +19,16 @@
     }
 }
 
--(void)addUITapGestureRecognizer:(void (^)(id x))actionBlock
+-(void)addTapGestureRecognizer:(nullable SEL) action target:(id)target
 {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] init];
-    [[tap rac_gestureSignal] subscribeNext:actionBlock];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     self.userInteractionEnabled = YES;
     [self addGestureRecognizer:tap];
 }
 
--(void)addUIPanGestureRecognizer:(void (^)(id x))actionBlock
+-(void)addPanGestureRecognizer:(nullable SEL) action target:(id)target
 {
-    UIPanGestureRecognizer*pan =[[UIPanGestureRecognizer alloc] init];
-    [[pan rac_gestureSignal] subscribeNext:actionBlock];
+    UITapGestureRecognizer *pan = [[UITapGestureRecognizer alloc] initWithTarget:target action:action];
     self.userInteractionEnabled = YES;
     [self addGestureRecognizer:pan];
 }
