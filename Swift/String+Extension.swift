@@ -8,33 +8,75 @@
 
 import Foundation
 import UIKit
-import ReactiveCocoa
-import ReactiveSwift
+
 
 extension String {
-    func appVersion() -> String {
+    static func appVersion() -> String? {
         guard let dic = Bundle.main.infoDictionary,
             let version = dic["CFBundleShortVersionString"] as? String else {
-            return ""
+            return nil
         }
         return version
     }
-}
-
-
-class test: NSObject {
-    func test() {
-        let tv1 = UITextField.init(frame: .zero)
-        tv1.reactive.continuousTextValues.observeValues { (text) in
-            
+    
+    static func currentLanguage() -> String? {
+        guard let language = NSLocale.preferredLanguages.first else {
+            return nil
         }
+        return language
     }
-//    let tv1 = UITextField(frame: CGRect(x: 50, y: 50, width: 200, height: 30))
-//    tv1.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-//    tv1.placeholder = "用户名"
-//    view.addSubview(tv1)
-//
-//    tv1.rac_textSignal().subscribeNext { (text) in
-//    print(text)
-//    }
+    
+    static func systemVersion() -> String {
+        return UIDevice.current.systemVersion
+    }
+    
+    // App沙盒路径
+    static func kAppPath() -> String {
+        return NSHomeDirectory()
+    }
+    
+    // Documents路径
+    static func kBundleDocumentPath() -> String? {
+        guard let path: String = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
+            return nil
+        }
+        return path
+    }
+    
+    // Caches路径
+    static func KCachesPath() -> String? {
+        guard let path: String = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else {
+            return nil
+        }
+        return path
+    }
+    
+    /// base64编码
+    ///
+    /// - Parameter options:
+    /// - Returns:
+    public func base64EncodedString(options: Data.Base64EncodingOptions = []) -> String? {
+        let data = self.data(using: .utf8)
+        return data?.base64EncodedString(options: options)
+    }
+    
+    /// base64解码
+    ///
+    /// - Parameter options:
+    /// - Returns:
+    public func base64DecodedString(options: Data.Base64DecodingOptions = []) -> String? {
+        guard let data = Data(base64Encoded: self, options: options) else {
+            return nil
+        }
+        return String(data: data, encoding: .utf8)
+    }
+    
+    public func size(with font: UIFont, toSize: CGSize = CGSize.zero,
+                     option: NSStringDrawingOptions = .usesLineFragmentOrigin) -> CGSize {
+        let attributes = [NSFontAttributeName: font]
+        if __CGSizeEqualToSize(toSize, CGSize.zero) {
+            return self.size(attributes:attributes)
+        }
+        return self.boundingRect(with: toSize, options: option, attributes: attributes, context: nil).size
+    }
 }

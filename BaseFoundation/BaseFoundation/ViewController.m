@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIView+extension.h"
+#import "BaseFoundation-Swift.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addTapGestureRecognizer:@selector(changeBackGroundColor) target:self];
+    
+    StringExtensionTest* tester = [StringExtensionTest new];
+    
+    NSLog(@"appVersion = %@", tester);
 }
 
 - (void)changeBackGroundColor {
