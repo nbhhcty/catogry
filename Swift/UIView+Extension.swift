@@ -25,42 +25,42 @@ public extension UIView {
 // MARK: Frame
 public extension UIView {
     
-    public var x: CGFloat {
+    public var s_x: CGFloat {
         get { return frame.x }
         set { frame.x = newValue }
     }
     
-    public var y: CGFloat {
+    public var s_y: CGFloat {
         get { return frame.y }
         set { frame.y = newValue }
     }
     
-    public var width: CGFloat {
+    public var s_width: CGFloat {
         get { return frame.width }
         set { frame.width = newValue }
     }
     
-    public var height: CGFloat {
+    public var s_height: CGFloat {
         get { return frame.height }
         set { frame.height = newValue }
     }
     
-    public var top: CGFloat {
+    public var s_top: CGFloat {
         get { return y }
         set { y = newValue }
     }
     
-    public var left: CGFloat {
+    public var s_left: CGFloat {
         get { return x }
         set { x = newValue }
     }
     
-    public var bottom: CGFloat {
+    public var s_bottom: CGFloat {
         get { return y + height }
         set { y = newValue - height }
     }
     
-    public var right: CGFloat {
+    public var s_right: CGFloat {
         get { return x + width }
         set { x = newValue - width }
     }

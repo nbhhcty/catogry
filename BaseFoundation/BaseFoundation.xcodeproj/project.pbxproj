@@ -37,6 +37,7 @@
 		7C221584209D9FF0006F783C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C221583209D9FF0006F783C /* UIView+Extension.swift */; };
 		7C221586209DA04F006F783C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C221585209DA04F006F783C /* UIImage+Extension.swift */; };
 		7C221588209DA08A006F783C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C221587209DA08A006F783C /* UIColor+Extension.swift */; };
+		7C22161B209EC7B2006F783C /* ResponderViewA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22161A209EC7B2006F783C /* ResponderViewA.swift */; };
 		E28E84064D03E3D710BB03CE /* Pods_BaseFoundationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE91DE2018F972ABF1110AD /* Pods_BaseFoundationUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,7 @@
 		7C221585209DA04F006F783C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7C221587209DA08A006F783C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7C221618209DCBC0006F783C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7C22161A209EC7B2006F783C /* ResponderViewA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderViewA.swift; sourceTree = "<group>"; };
 		9B2C390A5A104C1579A75B9B /* Pods_BaseFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67C5951E8C13FE377ED8EF9 /* Pods-BaseFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseFoundation/Pods-BaseFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		D0009E1AB1F203BBF92F76FF /* Pods-BaseFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseFoundationUITests/Pods-BaseFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				7C221573209D8F5A006F783C /* StringExtensionTest.swift */,
+				7C22161A209EC7B2006F783C /* ResponderViewA.swift */,
 			);
 			path = swift;
 			sourceTree = "<group>";
@@ -470,15 +473,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-BaseFoundation/Pods-BaseFoundation-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -513,6 +520,7 @@
 				7C22152A209D467F006F783C /* UIImage+extension.m in Sources */,
 				7C221580209D9E55006F783C /* UIScreen+Extension.swift in Sources */,
 				7C221576209D9420006F783C /* CGFloat+Extension.swift in Sources */,
+				7C22161B209EC7B2006F783C /* ResponderViewA.swift in Sources */,
 				7C221582209D9FB0006F783C /* UserDefaults+Extension.swift in Sources */,
 				7C221530209D467F006F783C /* NSObject+po.m in Sources */,
 			);

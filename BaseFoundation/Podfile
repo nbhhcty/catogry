@@ -9,6 +9,8 @@ target 'BaseFoundation' do
 
   # Pods for BaseFoundation
   pod 'ReactiveCocoa'
+  pod 'Masonry'
+  pod 'SnapKit', '~> 3.2.0'
   
   target 'BaseFoundationTests' do
     inherit! :search_paths
