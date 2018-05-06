@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addTapGestureRecognizer:@selector(changeBackGroundColor) target:self];
+//    [self.view addTapGestureRecognizer:@selector(changeBackGroundColor) target:self];
 }
 
 - (void)uiResponderTest {
@@ -75,14 +75,14 @@
         make.top.equalTo(self.view).offset(4);
         make.left.equalTo(self.view).offset(4);
         make.right.equalTo(self.view).offset(-4);
-        make.height.equalTo(self.view).multipliedBy(0.49);
+        make.height.equalTo(self.view).multipliedBy(0.4);
     }];
     
     [self.viewB mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-4);
         make.left.equalTo(self.view).offset(4);
         make.right.equalTo(self.view).offset(-4);
-        make.height.equalTo(self.view).multipliedBy(0.49);
+        make.height.equalTo(self.view).multipliedBy(0.4);
     }];
 }
 

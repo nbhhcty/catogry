@@ -43,7 +43,6 @@ class ResponderViewA: ResponderBaseView {
     lazy var view1: ResponderViewA_1 = {
         let obj = ResponderViewA_1.init(frame: .zero)
         obj.addTapGestureRecognizer(#selector(view1TapAction), target: self)
-        obj.backgroundColor = UIColor.init(numberColor: 0xff0000, alpha: 1)
         self.addSubview(obj)
         return obj
     }()
@@ -51,7 +50,6 @@ class ResponderViewA: ResponderBaseView {
     lazy var view2: ResponderViewA_2 = {
         let obj = ResponderViewA_2.init(frame: .zero)
         obj.addTapGestureRecognizer(#selector(view2TapAction), target: self)
-        obj.backgroundColor = UIColor.init(numberColor: 0x11ff00, alpha: 1)
         self.addSubview(obj)
         return obj
     }()
@@ -85,7 +83,30 @@ class ResponderViewA: ResponderBaseView {
         print("ResponderViewA point = \(point)")
         
         /// 所有的时间都让view2响应
-        return self.view2
+//        return self.view2
+        return super.hitTest(point, with: event)
+    }
+}
+
+class ResponderViewA_1: ResponderBaseView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.init(numberColor: 0xff0000, alpha: 1)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+class ResponderViewA_2: ResponderBaseView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor.init(numberColor: 0x11ff00, alpha: 1)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -100,36 +121,6 @@ class ResponderViewB: ResponderBaseView {
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         print("ResponderViewB point = \(point)")
-        return super.hitTest(point, with: event)
-    }
-}
-
-class ResponderViewA_1: ResponderBaseView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        print("ResponderViewA_1 point = \(point)")
-        return super.hitTest(point, with: event)
-    }
-}
-
-class ResponderViewA_2: ResponderBaseView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        print("ResponderViewA_2 point = \(point)")
         return super.hitTest(point, with: event)
     }
 }

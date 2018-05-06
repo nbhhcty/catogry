@@ -68,3 +68,19 @@ public extension CGFloat {
     }
 }
 
+extension Int {
+    // 给Int类型添加一个下标，该下标表示十进制数从右向左的第n个数字。    
+    // 746381295[0] 5
+    // 746381295[1] 9
+    subscript(digitIndex: Int) -> Int {
+        var decimalBase = 1
+        for _ in 0..<digitIndex {
+            decimalBase *= 10
+        }
+        return (self / decimalBase) % 10
+    }
+}
+
+
+
+
