@@ -38,6 +38,8 @@
 		7C221586209DA04F006F783C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C221585209DA04F006F783C /* UIImage+Extension.swift */; };
 		7C221588209DA08A006F783C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C221587209DA08A006F783C /* UIColor+Extension.swift */; };
 		7C22161B209EC7B2006F783C /* ResponderViewA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C22161A209EC7B2006F783C /* ResponderViewA.swift */; };
+		7C26D06D20A1F2EF004698B8 /* singletonClass1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C26D06C20A1F2EF004698B8 /* singletonClass1.m */; };
+		7CD4ECFE20A49ADC00B08676 /* yo_shotcut_appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CD4ECFD20A49ADC00B08676 /* yo_shotcut_appicon.png */; };
 		E28E84064D03E3D710BB03CE /* Pods_BaseFoundationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE91DE2018F972ABF1110AD /* Pods_BaseFoundationUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +113,10 @@
 		7C221587209DA08A006F783C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7C221618209DCBC0006F783C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7C22161A209EC7B2006F783C /* ResponderViewA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderViewA.swift; sourceTree = "<group>"; };
+		7C26D06A20A1F2CE004698B8 /* singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
+		7C26D06B20A1F2EF004698B8 /* singletonClass1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = singletonClass1.h; sourceTree = "<group>"; };
+		7C26D06C20A1F2EF004698B8 /* singletonClass1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = singletonClass1.m; sourceTree = "<group>"; };
+		7CD4ECFD20A49ADC00B08676 /* yo_shotcut_appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yo_shotcut_appicon.png; sourceTree = "<group>"; };
 		9B2C390A5A104C1579A75B9B /* Pods_BaseFoundationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaseFoundationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67C5951E8C13FE377ED8EF9 /* Pods-BaseFoundation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseFoundation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseFoundation/Pods-BaseFoundation.debug.xcconfig"; sourceTree = "<group>"; };
 		D0009E1AB1F203BBF92F76FF /* Pods-BaseFoundationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaseFoundationUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaseFoundationUITests/Pods-BaseFoundationUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +154,7 @@
 		7C2214D9209D464C006F783C = {
 			isa = PBXGroup;
 			children = (
+				7CD4ECFD20A49ADC00B08676 /* yo_shotcut_appicon.png */,
 				7C221518209D467F006F783C /* Objective-C */,
 				7C221517209D467F006F783C /* Swift */,
 				7C2214E4209D464C006F783C /* BaseFoundation */,
@@ -182,6 +189,9 @@
 				7C2214F0209D464E006F783C /* LaunchScreen.storyboard */,
 				7C2214F3209D464E006F783C /* Info.plist */,
 				7C2214F4209D464E006F783C /* main.m */,
+				7C26D06A20A1F2CE004698B8 /* singleton.h */,
+				7C26D06B20A1F2EF004698B8 /* singletonClass1.h */,
+				7C26D06C20A1F2EF004698B8 /* singletonClass1.m */,
 			);
 			path = BaseFoundation;
 			sourceTree = "<group>";
@@ -392,6 +402,7 @@
 				7C2214F2209D464E006F783C /* LaunchScreen.storyboard in Resources */,
 				7C2214EF209D464E006F783C /* Assets.xcassets in Resources */,
 				7C2214ED209D464D006F783C /* Main.storyboard in Resources */,
+				7CD4ECFE20A49ADC00B08676 /* yo_shotcut_appicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +516,7 @@
 				7C2214EA209D464D006F783C /* ViewController.m in Sources */,
 				7C221533209D46AF006F783C /* String+Extension.swift in Sources */,
 				7C22157A209D9CDD006F783C /* Date+Extension.swift in Sources */,
+				7C26D06D20A1F2EF004698B8 /* singletonClass1.m in Sources */,
 				7C22152F209D467F006F783C /* UIView+extension.m in Sources */,
 				7C22152B209D467F006F783C /* NSObject+Invocation.m in Sources */,
 				7C221574209D8F5A006F783C /* StringExtensionTest.swift in Sources */,

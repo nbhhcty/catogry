@@ -27,7 +27,6 @@ public extension UIImage {
 
 // MARK: 图片设置圆角
 public extension UIImage {
-    
     public func round(byRoundingCorners: UIRectCorner = UIRectCorner.allCorners, cornerRadi: CGFloat) -> UIImage? {
         return round(byRoundingCorners: byRoundingCorners, cornerRadii: CGSize(width: cornerRadi, height: cornerRadi))
     }
